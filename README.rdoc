@@ -23,6 +23,9 @@ Things you may want to cover:
 
 * ...
 
+![Build Status](https://codeship.com/projects/4e19db40-2f36-0134-7384-4a25dba64f1f/status?branch=master)
+![Code Climate](https://codeclimate.com/github/MiaFay/breakable-toy.png)
+![Coverage Status](https://coveralls.io/repos/MiaFay/breakable-toy/badge.png)
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
