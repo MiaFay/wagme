@@ -1,5 +1,9 @@
 require 'rails_helper'
+require 'shoulda-matchers'
+require 'valid_attribute'
 
-RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe User do
+  it { should have_valid(:username).when('user1', 'user2') }
+  it { should_not have_valid(:username).when(nil, '') }
+
 end
