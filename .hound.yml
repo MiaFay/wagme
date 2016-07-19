@@ -1,8 +1,8 @@
-
 AllCops:
   Exclude:
     - db/schema.rb
-  #DisplayCopNames: true
+    - db/migrate/*.rb
+    - db/migreate/*
 
 AccessorMethodName:
   Enabled: false
@@ -277,5 +277,10 @@ Style/UnneededPercentQ:
 
 Metrics/AbcSize:
   Enabled: false
-Contact GitHub API Training Shop Blog About
-© 2016 GitHub, Inc. Terms Privacy Security Status Help
+
+ruby:
+  ignore_file: .hound_ignore
+  config_file: .ruby-style.yml
+
+scss:
+  config_file: .scss-style.yml
