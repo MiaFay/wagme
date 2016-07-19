@@ -1,8 +1,7 @@
 AllCops:
   Exclude:
     - db/schema.rb
-    - db/migrate/*.rb
-    - db/migreate/*
+    - config/initializers/devise.rb
 
 AccessorMethodName:
   Enabled: false
@@ -63,9 +62,6 @@ Delegate:
   Enabled: false
 
 DeprecatedHashMethods:
-  Enabled: false
-
-Documentation:
   Enabled: false
 
 DotPosition:
