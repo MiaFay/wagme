@@ -1,19 +1,4 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @MiaFay
- Watch 16
-  Star 7
-  Fork 7 LaunchAcademy/launchcop
- Code  Issues 0  Pull requests 0  Wiki  Pulse  Graphs
-Branch: master Find file Copy pathlaunchcop/config/rubocop.yml
-9807707  on Feb 13, 2015
-@dpickett dpickett adjust settings per team convention
-3 contributors @radavis @HeroicEric @dpickett
-RawBlameHistory     279 lines (188 sloc)  3.19 KB
+
 AllCops:
   Exclude:
     - db/schema.rb
