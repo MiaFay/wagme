@@ -1,10 +1,8 @@
 AllCops:
   Exclude:
     - db/schema.rb
-<<<<<<< HEAD
     - db/migrate/*.rb
     - db/migreate/*
-=======
     - config/initializers/devise.rb
     - /db/schema.rb
     - /config/initializers/devise.rb
@@ -12,7 +10,6 @@ AllCops:
     - db/migrate/*.rb
     - /db/seeds.rb
     - db/seeds.rb
->>>>>>> 8ccc3827ad40f4128fa02546c52f6c0cce70d263
 
 AccessorMethodName:
   Enabled: false
