@@ -1,6 +1,8 @@
 AllCops:
   Exclude:
     - db/schema.rb
+    - db/migrate/*.rb
+    - db/migreate/*
     - config/initializers/devise.rb
     - /db/schema.rb
     - /config/initializers/devise.rb
@@ -281,6 +283,7 @@ Metrics/AbcSize:
   Enabled: false
 
 ruby:
+  ignore_file: .hound_ignore
   config_file: .rubocop.yml
 
 scss:
