@@ -3,7 +3,6 @@ require 'shoulda-matchers'
 require 'valid_attribute'
 
 describe User do
-
   it { should have_valid(:email).when('user@example.com', 'another@example.com') }
   it { should_not have_valid(:email).when(nil, '') }
 
@@ -12,5 +11,7 @@ describe User do
     user.password = 'password'
     user.password_confirmation = 'anotherpassword'
 
-    expect(page)
+    expect(user).to_not be_valid
+    expect(user.errors[:password_confirmation]).to_not be_blank
   end
+end
