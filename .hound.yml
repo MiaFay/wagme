@@ -283,12 +283,8 @@ Metrics/AbcSize:
   Enabled: false
 
 ruby:
-<<<<<<< HEAD
   ignore_file: .hound_ignore
-  config_file: .ruby-style.yml
-=======
   config_file: .rubocop.yml
->>>>>>> 8ccc3827ad40f4128fa02546c52f6c0cce70d263
 
 scss:
   config_file: .scss-style.yml
