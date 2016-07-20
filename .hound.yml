@@ -1,8 +1,18 @@
 AllCops:
   Exclude:
     - db/schema.rb
+<<<<<<< HEAD
     - db/migrate/*.rb
     - db/migreate/*
+=======
+    - config/initializers/devise.rb
+    - /db/schema.rb
+    - /config/initializers/devise.rb
+    - /db/migrate/*.rb
+    - db/migrate/*.rb
+    - /db/seeds.rb
+    - db/seeds.rb
+>>>>>>> 8ccc3827ad40f4128fa02546c52f6c0cce70d263
 
 AccessorMethodName:
   Enabled: false
@@ -63,9 +73,6 @@ Delegate:
   Enabled: false
 
 DeprecatedHashMethods:
-  Enabled: false
-
-Documentation:
   Enabled: false
 
 DotPosition:
@@ -279,8 +286,12 @@ Metrics/AbcSize:
   Enabled: false
 
 ruby:
+<<<<<<< HEAD
   ignore_file: .hound_ignore
   config_file: .ruby-style.yml
+=======
+  config_file: .rubocop.yml
+>>>>>>> 8ccc3827ad40f4128fa02546c52f6c0cce70d263
 
 scss:
   config_file: .scss-style.yml
