@@ -14,7 +14,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'launchy'
+  gem 'launchy', require: false
   gem 'factory_girl'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
@@ -27,5 +27,10 @@ end
 
 group :test do
   gem 'coveralls', require: false
-  gem 'launchy', require: false
 end
+
+group :production do
+  gem 'rails_12factor'
+end
+
+ruby '2.2.3'
