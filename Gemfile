@@ -8,16 +8,21 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
+gem 'file_validators'
+gem 'fog'
+gem 'puma'
 
 
 group :development, :test do
   gem 'pry-rails'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
   gem 'launchy', require: false
   gem 'factory_girl'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
+  gem 'dotenv-rails'
+  gem 'database_cleaner'
 end
 
 group :development do
