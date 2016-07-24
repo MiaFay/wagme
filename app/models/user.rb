@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true
   validates :city, presence: true
   validates :state, presence: true
-  validates :zip, presence: true
+  validates :zip, presence: true, numericality: true, length: { is: 5 }
 
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
