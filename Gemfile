@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "2.2.3"
 
 gem 'rails', '4.2.6'
 gem 'pg', '~> 0.15'
@@ -11,13 +12,12 @@ gem 'devise'
 gem 'file_validators'
 gem 'fog'
 gem 'puma'
-
+gem 'foundation-rails'
 
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
-  gem 'launchy', require: false
   gem 'factory_girl'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
@@ -31,11 +31,10 @@ group :development do
 end
 
 group :test do
+  gem 'launchy', require: false
   gem 'coveralls', require: false
 end
 
 group :production do
   gem 'rails_12factor'
 end
-
-ruby '2.2.3'
