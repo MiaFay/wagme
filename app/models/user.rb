@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :meetups
+  has_many :dogs
 
   validates :first_name, presence: true
   validates :last_name, presence: true
