@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   :recoverable, :rememberable, :trackable, :validatable
 
   def name
-    [firstname, middlename, lastname].compact.join(' ')
+    [first_name, last_name].compact.join(' ')
   end
 
 end
