@@ -9,7 +9,6 @@ feature 'sign up' do
     fill_in 'State', with: 'MA'
     fill_in 'Zip', with: '00000'
 
-
     click_button 'Sign Up'
 
   end
