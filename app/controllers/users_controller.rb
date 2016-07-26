@@ -4,5 +4,5 @@ class UsersController < ApplicationController
     @meetups = @user.meetups
     @dogs = Dog.find(params[:id])
     @name = @user.name
-    end
+  end
 end
