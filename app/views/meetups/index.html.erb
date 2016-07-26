@@ -1,9 +1,7 @@
 <div class="meetups-index">
   <h1 class=indexTitle>Meetups Near You</h1>
   <a href="/meetups/new" class="button">Create Meetup</a>
-  <p>
-    <%= @message %>
-  </p>
+
   <!-- <%= flash[:notice] %> -->
   <ul>
     <% @meetups.each do |meetup| %>

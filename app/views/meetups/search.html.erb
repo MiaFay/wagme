@@ -1,0 +1,9 @@
+<% if @results.present? %>
+  <% @results.each do |meetup| %>
+    <%= link_to meetup.name, meetup_path(meetup) %>
+  <% end %>
+<% elsif %>
+<% params[:q].blank? %>
+<% else %>
+  <p> There were no meetups found with the following criteria: <%= params[:q] %>.<p>
+<% end %>

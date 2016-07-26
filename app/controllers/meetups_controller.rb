@@ -26,11 +26,22 @@ class MeetupsController < ApplicationController
 
   def show
     @meetup = Meetup.find(params[:id])
-    @users = User.find(params[:id])
+    @users = @meetup.user
   end
 
   def edit
     @meetup = Meetup.find(params[:id])
+  end
+
+  def update
+    @meetup = Metup.find(params[:id])
+    if @meetup.update(meetup_params)
+      flash[:success] = 'Metup successfully updated!'
+      redirect_to profile_path(current_user)
+    else
+      flash[:errors] = @meetup.errors.full_messages.join(', ')
+      render :edit
+    end
   end
 
   def params_meetup

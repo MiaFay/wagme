@@ -11,6 +11,6 @@ class DogsController
   end
 
   def params_dog
-    params.require(:meetup).permit(:dog_name, :breed, :sex, :neutered, :vaccinated, :description, :age)
+    params.require(:meetup).permit(:dog_name, :breed, :sex, :neutered, :vacinated, :temperment, :age)
   end
 end
