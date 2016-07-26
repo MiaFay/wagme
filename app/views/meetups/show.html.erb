@@ -15,7 +15,7 @@ Attendees:
 <div class="header">
   <div class="header-buttons">
     <% if user_signed_in? %>
-      <% if current_user.id == @meetup.user_id %>
+      <% if current_user.id == @meetup.user.id %>
       <%= link_to 'Edit', edit_meetup_path(@meetup), class: "button" %>
       <%= link_to 'Delete', @meetup, method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
       <% end %>
