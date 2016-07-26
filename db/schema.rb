@@ -11,21 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726004842) do
+ActiveRecord::Schema.define(version: 20160726013158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "dogs", force: :cascade do |t|
-    t.string  "dog_name",    limit: 50, null: false
-    t.string  "breed",       limit: 50, null: false
+    t.string  "dog_name",   limit: 50, null: false
+    t.string  "breed",      limit: 50, null: false
     t.string  "sex"
     t.boolean "neutered"
     t.boolean "vacinated"
-    t.text    "description",            null: false
+    t.text    "temperment",            null: false
     t.integer "age"
-    t.integer "users_id"
-    t.integer "user_id"
+    t.integer "user_id",               null: false
   end
 
   add_index "dogs", ["user_id"], name: "index_dogs_on_user_id", using: :btree
@@ -34,35 +33,34 @@ ActiveRecord::Schema.define(version: 20160726004842) do
     t.string   "name",        null: false
     t.text     "description", null: false
     t.string   "location",    null: false
-    t.integer  "creator_id",  null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                            default: "", null: false
-    t.string   "encrypted_password",               default: "", null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                    default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "avatar"
-    t.string   "first_name",                                    null: false
-    t.string   "last_name",                                     null: false
-    t.string   "city",                                          null: false
-    t.string   "state",                  limit: 2
-    t.string   "zip",                    limit: 5
+    t.string   "first_name",                          null: false
+    t.string   "last_name",                           null: false
+    t.string   "city",                                null: false
+    t.string   "state",                               null: false
+    t.string   "zip",                                 null: false
+    t.integer  "dog_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "dogs", "users"
-  add_foreign_key "meetups", "users", column: "creator_id"
 end
