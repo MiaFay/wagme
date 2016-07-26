@@ -1,13 +1,15 @@
-<h1>Upcoming Meetups</h1>
-<a href="/meetups/new" class="button">Create Meetup</a>
-<p>
-  <%= @message %>
-</p>
-<!-- <%= flash[:notice] %> -->
-<ul>
-  <% @meetups.each do |meetup| %>
-  <li class="meetup">
-    <a href="/meetups/<%= meetup.id %>"><%= meetup.name %></a>
-  </li>
-  <% end %>
-</ul>
+<div class="meetups-index">
+  <h1 class=indexTitle>Meetups Near You</h1>
+  <a href="/meetups/new" class="button">Create Meetup</a>
+  <p>
+    <%= @message %>
+  </p>
+  <!-- <%= flash[:notice] %> -->
+  <ul>
+    <% @meetups.each do |meetup| %>
+    <li class="meetup-link">
+      <%= link_to meetup.name, meetup_path(meetup) %>
+    </li>
+    <% end %>
+  </ul>
+</div>

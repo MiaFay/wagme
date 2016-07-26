@@ -15,22 +15,22 @@
       <div class="top-bar-title small-12 medium-4 columns">
         <strong><%= link_to 'Wag The Dog', meetups_path, class: "top-bar-text" %></strong>
       </div>
-    </div>
-  </div>
-  <body>
-    <div>
-      <div class="top-bar-left">
-        <%= link_to "Add a Meetup", new_meetup_path, { class: "button new-meetup" } %>
+      <div class="top-bar-right">
+        <% if user_signed_in? %>
+        <%= link_to "Sign Out", destroy_user_session_path, method: 'delete', class: "top-bar-text" %> /
+        <%= link_to "Edit Profile", edit_user_registration_path, class: "top-bar-text" %>
+        <% else %>
+        <%= link_to "Sign In", new_user_session_path %> /
+        <%= link_to "Sign Up", new_user_registration_path %>
+        <% end %>
       </div>
     </div>
-    <div class="top-bar-right">
-      <% if user_signed_in? %>
-      <%= link_to "Sign Out", destroy_user_session_path, method: 'delete', class: "top-bar-text" %> /
-      <%= link_to "Edit Profile", edit_user_registration_path, class: "top-bar-text" %>
-      <% else %>
-      <%= link_to "Sign In", new_user_session_path %> /
-      <%= link_to "Sign Up", new_user_registration_path %>
-      <% end %>
+  </div>
+</div>
+<body>
+  <div>
+    <div class="top-bar-left">
+      <%= link_to "Add a Meetup", new_meetup_path, { class: "button new-meetup" } %>
     </div>
   </div>
   <% end %>

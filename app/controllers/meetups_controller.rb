@@ -8,8 +8,8 @@ class MeetupsController < ApplicationController
     @meetup = Meetup.new(params_meetup)
     @meetup.user = current_user
     if @meetup.save
-      flash[:notice] = 'Bar successfully added!'
-      redirect_to bar_path(@meetup)
+      flash[:notice] = 'Meetup successfully added!'
+      redirect_to meetup_path(@meetup)
     else
       flash[:error] = @meetup.errors.full_messages.join(', ')
       render :new

@@ -1,13 +1,12 @@
 class RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters, if: :devise_controller?
-  # before_filter :configure_permitted_parameters, :only => [:create, :new]
 
   protected
 
-  def sign_up(resource_name, resource)
+  def sign_up(_resource_name, _resource)
   end
 
-  def after_sign_up_path_for(resource)
+  def after_sign_up_path_for(_resource)
     new_user_session_path
   end
 

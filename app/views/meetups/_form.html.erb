@@ -1,28 +1,30 @@
-<%= form_for(@meetup) do |f| %>
-  <div class="row">
+<div class="form">
+  <%= form_for(@meetup) do |f| %>
+  <div class="field">
     <div class="small-12 medium-6 columns">
       <%= f.label :name, 'Name' %>
       <%= f.text_field :name %>
     </div>
   </div>
 
-  <div class="row">
+  <div class="field">
     <div class="small-12 medium-6 columns">
       <%= f.label :location, 'Location' %>
       <%= f.text_field :location %>
     </div>
   </div>
 
-  <div class="row">
+  <div class="field">
     <div class="small-12 medium-6 columns">
       <%= f.label :description, 'Description' %>
       <%= f.text_area :description %>
     </div>
   </div>
 
-  <div class="row">
+  <div class="field">
     <div class="small-12 columns">
       <%= f.submit %>
     </div>
   </div>
-<%end%>
+  <%end%>
+</div>
