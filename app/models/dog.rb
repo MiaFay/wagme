@@ -1,7 +1,6 @@
 class Dog < ActiveRecord::Base
   belongs_to :users
 
-
   validates :dog_name, presence: true
   validates :breed, presence: true
   validates :sex, presence: true

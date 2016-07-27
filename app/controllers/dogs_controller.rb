@@ -10,7 +10,11 @@ class DogsController
     @dog = Dog.new
   end
 
-  def params_dog
-    params.require(:meetup).permit(:dog_name, :breed, :sex, :neutered, :vacinated, :temperment, :age)
+  def new
+    @user = User.find(params[:id])
+    @dog = Dog.new
+
+  def dog_params
+    params.require(:dog).permit(:dog_name, :breed, :sex, :neutered, :vacinated, :temperment, :age)
   end
 end

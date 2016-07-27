@@ -1,12 +1,12 @@
-<%= form_for([@user, @dog]) do |f| %>
+<%= form_for ([@user, @dog]) do |f| %>
   <%= f.text_field :dog_name, placeholder: "Dog Name" %>
 
   <%= f.text_field :breed, placeholder: "Breed" %>
   <%= f.text_field :sex, placeholder: "Sex" %>
-  <%= f.boolean :neutered, placeholder: "Neutered" %>
-  <%= f.boolean :vacinated, placeholder: "vacinated" %>
+  <%= f.check_box :neutered, placeholder: "Neutered" %>
+  <%= f.check_box :vacinated, placeholder: "vacinated" %>
   <%= f.text_field :temperment, placeholder: "Temperment" %>
-  <%= f.integer :age, placeholder: "Age" %>
+  <%= f.text_field :age, placeholder: "Age" %>
 
   <%= f.submit%>
 <% end %>
