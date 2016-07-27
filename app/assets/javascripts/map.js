@@ -1,4 +1,5 @@
-//defaults set here
+// defaults set here
+
 your_location_label = 'You are here!'
 // if the user doesn't allow location access, where do we center?
 default_center = {lat: 42.360, lng: -71.062} // center on Boston
@@ -9,6 +10,7 @@ search_radius = 1800 // search nearby places within 2000 meters
 // see google places api doc for legal "types"
 // for instance cafe, zoo, pet_store, school
 search_for_type = 'park' // search for google type of "park"
+search_for_other_type = 'school' // search for google type of "park"
 
 
 
@@ -41,10 +43,16 @@ function initMap() {
       infoWindow.setContent(your_location_label);
       map.setCenter(pos);
       var service = new google.maps.places.PlacesService(map);
+      // search for places twice
       service.nearbySearch({
         location: pos,
         radius: search_radius,
-        type: [search_for_type]
+       type: [search_for_type]
+      }, callback);
+      service.nearbySearch({
+        location: pos,
+        radius: search_radius,
+       type: [search_for_other_type]
       }, callback);
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
@@ -79,27 +87,20 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     });
 
     google.maps.event.addListener(marker, 'click', function() {
-      infoWindow.setContent(place.name);
-      //
-      // var contentString = '<div id="content">'+
-      //    '<div id="siteNotice">'+
-      //    '</div>'+
-      //    '<h1 id="firstHeading" class="firstHeading">' + place.name + '</h1>'+
-      //    '<div id="bodyContent">'+
-      //    '<p><b>Suggested Location</b>, We could generate this text from the ' +
-      //    ' meetup location database, we would  probably have to process it to escape special ' +
-      //    'characters like\" \' \& and \% etc. Also we would have to make the localhost reference' +
-      //    ' find the actual website address (easy peasy)</p>'+
-      //    '<p><a href="http://localhost:3000/createMeetup?place=' + place.name +
-      //    '\&location=test">' +
-      //    'Make a meetup now! </a> '+
-      //    '(last visited June 22, 2009).</p>'+
-      //    '</div>'+
-      //    '</div>';
-      //
-      // infoWindow.setContent(contentString)
+    //  infoWindow.setContent(place.name);
 
-      //here will want to construct a link with lat, long, placename (ie danahey)
+      var contentString = '<div id="content">'+
+         '<div id="siteNotice"></div>'+
+         '<h4 id="firstHeading" class="firstHeading">' + place.name + '</h4>'+
+         '<div id="bodyContent">'+ place.vicinity +
+         '<br><b><a href="http://localhost:3000/changeThisToRouteName?place=' + place.name +
+         '\&lat=' + place.geometry.location.lat() + '\&lng=' + place.geometry.location.lng() +
+         '\&place_id=' + place.place_id + '\&vicinity=' + place.vicinity +
+          '">' +
+         'Make a meetup now! </a></b>'+
+         '</div>';
+
+      infoWindow.setContent(contentString)
       infoWindow.open(map, this);
     });
   }
