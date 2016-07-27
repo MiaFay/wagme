@@ -80,24 +80,26 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
     google.maps.event.addListener(marker, 'click', function() {
       infoWindow.setContent(place.name);
+      //
+      // var contentString = '<div id="content">'+
+      //    '<div id="siteNotice">'+
+      //    '</div>'+
+      //    '<h1 id="firstHeading" class="firstHeading">' + place.name + '</h1>'+
+      //    '<div id="bodyContent">'+
+      //    '<p><b>Suggested Location</b>, We could generate this text from the ' +
+      //    ' meetup location database, we would  probably have to process it to escape special ' +
+      //    'characters like\" \' \& and \% etc. Also we would have to make the localhost reference' +
+      //    ' find the actual website address (easy peasy)</p>'+
+      //    '<p><a href="http://localhost:3000/createMeetup?place=' + place.name +
+      //    '\&location=test">' +
+      //    'Make a meetup now! </a> '+
+      //    '(last visited June 22, 2009).</p>'+
+      //    '</div>'+
+      //    '</div>';
+      //
+      // infoWindow.setContent(contentString)
 
-      var contentString = '<div id="content">'+
-         '<div id="siteNotice">'+
-         '</div>'+
-         '<h1 id="firstHeading" class="firstHeading">' + place.name + '</h1>'+
-         '<div id="bodyContent">'+
-         '<p><b>Suggested Location</b>, We could generate this text from the ' +
-         ' meetup location database, we would  probably have to process it to escape special ' +
-         'characters like\" \' \& and \% etc. Also we would have to make the localhost reference' +
-         ' find the actual website address (easy peasy)</p>'+
-         '<p><a href="http://localhost:3000/createMeetup?place=' + place.name +
-         '\&location=test">' +
-         'Make a meetup now! </a> '+
-         '(last visited June 22, 2009).</p>'+
-         '</div>'+
-         '</div>';
-
-      infoWindow.setContent(contentString)
+      //here will want to construct a link with lat, long, placename (ie danahey)
       infoWindow.open(map, this);
     });
   }
