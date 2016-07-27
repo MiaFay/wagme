@@ -1,2 +1,4 @@
 <h3>Create New Meetup</h3>
 <%= render 'form' %>
+<div id="map"></div>
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyB8opSmxtyCLwee0m-wZO9r8qCJPiJwJT0&libraries=places&callback=initMap" %>
