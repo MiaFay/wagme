@@ -1,5 +1,5 @@
-== README
-
+ README
+#WagMe
 ![Build Status](https://codeship.com/projects/4e19db40-2f36-0134-7384-4a25dba64f1f/status?branch=master)
 ![Code Climate](https://codeclimate.com/github/MiaFay/breakable-toy.png)
 [![Coverage Status](https://coveralls.io/repos/github/MiaFay/breakable-toy/badge.svg?branch=master)](https://coveralls.io/github/MiaFay/breakable-toy?branch=master)

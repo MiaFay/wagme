@@ -1,4 +1,8 @@
 <h3>Create New Meetup</h3>
 <%= render 'form' %>
+<script>
+var username = '<%= current_user.name %>';
+var images_url = '<%= request.protocol + request.host_with_port %>/images/'
+</script>
 <div id="map"></div>
-<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=" + ENV['GOOGLE_PLACES_API_KEY'] + "&libraries=places&callback=initMap" %>
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=" + ENV['GOOGLE_PLACES_API_KEY'] + "&libraries=places&callback=newMeetupMap" %>
