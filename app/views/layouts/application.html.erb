@@ -1,13 +1,16 @@
 
 <html>
 <head
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title><%= content_for?(:title) ? yield(:title) : "WagMe" %></title>
-  <%= stylesheet_link_tag    'application' %>
-  <%= javascript_include_tag 'application' %>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title><%= content_for?(:title) ? yield(:title) : "WagMe" %></title>
+<%= stylesheet_link_tag    'application' %>
+<%= javascript_include_tag 'application' %>
 
-  <%= csrf_meta_tags %>
+<%= csrf_meta_tags %>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.1/foundation.min.css">
+<script src="https://cdn.jsdelivr.net/foundation/6.2.1/foundation.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body>
   <nav class="top-bar">
@@ -23,34 +26,34 @@
       <ul class="menu">
 
         <% if user_signed_in? %>
-          <li class="text"><%= image_tag current_user.avatar, class: 'avatar' %></li>
-          <li>
-            <%= link_to "#{current_user.name}", edit_user_registration_path(@user)%>
-          </li>
+        <li class="text"><%= image_tag current_user.avatar, class: 'avatar' %></li>
+        <li>
+          <%= link_to "#{current_user.name}", edit_user_registration_path(@user)%>
+        </li>
 
-            <%= link_to 'Sign Out', destroy_user_session_path, class: 'button', method: 'delete' %>
-          </li>
-        <% else %>
-          <li>
-            <%= link_to 'Sign Up', new_user_registration_path, class: 'button', method: 'get' %>
-          </li>
-          <li>
-            <%= link_to 'Sign In', new_user_session_path, class: 'button', method: 'get' %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </nav>
-
-
-  <div class="row">
-    <div class="columns content">
-      <%= yield %>
-    </div>
+        <%= link_to 'Sign Out', destroy_user_session_path, class: 'button', method: 'delete' %>
+      </li>
+      <% else %>
+      <li>
+        <%= link_to 'Sign Up', new_user_registration_path, class: 'button', method: 'get' %>
+      </li>
+      <li>
+        <%= link_to 'Sign In', new_user_session_path, class: 'button', method: 'get' %>
+      </li>
+      <% end %>
+    </ul>
   </div>
+</nav>
 
-  <% if Rails.env.test? %>
-    <%= hidden_field_tag :testing, true  %>
-  <% end %>
+
+<div class="row">
+  <div class="columns content">
+    <%= yield %>
+  </div>
+</div>
+
+<% if Rails.env.test? %>
+<%= hidden_field_tag :testing, true  %>
+<% end %>
 </body>
 </html>
