@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726033823) do
+ActiveRecord::Schema.define(version: 20160727192336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,10 +21,11 @@ ActiveRecord::Schema.define(version: 20160726033823) do
     t.string  "breed",      limit: 50, null: false
     t.string  "sex"
     t.boolean "neutered"
-    t.boolean "vacinated"
+    t.boolean "vaccinated"
     t.text    "temperment",            null: false
     t.integer "age"
     t.integer "user_id",               null: false
+    t.string  "avatar"
   end
 
   add_index "dogs", ["user_id"], name: "index_dogs_on_user_id", using: :btree
@@ -36,9 +37,15 @@ ActiveRecord::Schema.define(version: 20160726033823) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.datetime "time"
   end
 
   add_index "meetups", ["user_id"], name: "index_meetups_on_user_id", using: :btree
+
+  create_table "user_meetups", force: :cascade do |t|
+    t.integer "user_id",   null: false
+    t.integer "meetup_id", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

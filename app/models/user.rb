@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :meetups
   has_many :dogs
+  has_many :user_meetups
+  has_many :is_attending_meetups, through: :user_meetups, source: :meetup
 
   validates :first_name, presence: true
   validates :last_name, presence: true
