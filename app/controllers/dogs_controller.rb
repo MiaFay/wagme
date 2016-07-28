@@ -15,14 +15,13 @@ class DogsController < ApplicationController
     @dog = Dog.new(dog_params)
     @user = current_user
     if @dog.save
-        flash[:notice] = 'Dog added successfully'
-        redirect_to user_path(@user)
-      else
-        flash[:error] = @dog.errors.full_messages.join(', ')
+      flash[:notice] = 'Dog added successfully'
+      redirect_to user_path(@user)
+    else
+      flash[:error] = @dog.errors.full_messages.join(', ')
       redirect_to user_path(@user)
     end
   end
-
 
   private
 
