@@ -5,7 +5,7 @@ class CreateDogs < ActiveRecord::Migration
       t.string :breed, null: false, limit: 50
       t.string :sex, presence: true
       t.boolean :neutered, presence: true
-      t.boolean :vacinated, presence: true
+      t.boolean :vaccinated, presence: true
       t.text :description, null: false
       t.integer :age
       t.belongs_to :users

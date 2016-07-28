@@ -1,15 +1,13 @@
-<%= @user.first_name + ' ' + @user.last_name%>
-
 <h3><%= @user.first_name %>'s Dogs:</h3>
 <% @user.dogs.each do |dog| %>
-<ul>
-  <a class="not-this" href="/users/<%= @user.id %>/dogs/<%= dog.id %>">
-    <li>
-      <div class="dog-prof-boxes">
-        <div class="disp-inline">
-          <h2> <%= "#{@dog_name}" %> </h2>
-        </div>
-      </div>
-</li>
+<%= dog.dog_name %>
+
+<div class="dog-prof-boxes">
+  <div class="disp-inline">
+    <h2> <%= "#{@dog_name}" %> </h2>
+  </div>
+</div>
 <% end %>
-</ul>
+
+<h2>Add your dog!</h2>
+<%= render 'form' %>

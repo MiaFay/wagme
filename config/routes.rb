@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   as :user do
     get '/' => 'devise/registrations#new'
   end
-  resources :dogs
 
-  resources :profiles, only: :show do
+  resources :users do
+    resources :dogs, only: [:new, :create, :update]
   end
-  resources :users, only: [:show]
+
   resources :meetups
 end
 # The priority is based upon order of creation: first created -> highest priority.
