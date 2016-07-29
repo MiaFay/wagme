@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160727192336) do
+ActiveRecord::Schema.define(version: 20160729154456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20160727192336) do
     t.text    "temperment",            null: false
     t.integer "age"
     t.integer "user_id",               null: false
-    t.string  "avatar"
   end
 
   add_index "dogs", ["user_id"], name: "index_dogs_on_user_id", using: :btree
@@ -36,11 +35,8 @@ ActiveRecord::Schema.define(version: 20160727192336) do
     t.string   "location",    null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "user_id"
-    t.datetime "time"
+    t.integer  "user_id",     null: false
   end
-
-  add_index "meetups", ["user_id"], name: "index_meetups_on_user_id", using: :btree
 
   create_table "user_meetups", force: :cascade do |t|
     t.integer "user_id",   null: false
@@ -73,5 +69,4 @@ ActiveRecord::Schema.define(version: 20160727192336) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "dogs", "users"
-  add_foreign_key "meetups", "users"
 end
