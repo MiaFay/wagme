@@ -18,7 +18,7 @@ var idx = 0
 meetup_array[idx++] = {name: "<%= meetup.name %>", location: "<%= meetup.location %>",
 description: "<%= meetup.description %>", link: '<%= link_to "Edit", meetup_path(meetup) %>'};
 <% end %>
-</script>
 
+</script>
 <div id="map"></div>
 <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=" + ENV['GOOGLE_PLACES_API_KEY'] + "&callback=listMeetupsMap" %>
