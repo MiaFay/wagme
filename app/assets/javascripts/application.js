@@ -10,6 +10,14 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require vendor/jquery
+//= require vendor/foundation
 //= require jquery_ujs
+//= require skel.min.js
 //= require_tree .
+//= require_self
+// /app/assets/javascripts/foundation.min.js
+// /app/assets/javascripts/modernizr.js
+// $(function(){ $(document).foundation(); });
+
+//$(function(){ $(document).foundation(); })

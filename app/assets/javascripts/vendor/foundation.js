@@ -602,7 +602,8 @@
 }(jQuery);
 /*******************************************
  *                                         *
- * This util was created by Marius Olbertz *
+ * This
+  was created by Marius Olbertz *
  * Please thank Marius on GitHub /owlbertz *
  * or the web http://www.mariusolbertz.de/ *
  *                                         *
