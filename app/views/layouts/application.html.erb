@@ -6,7 +6,6 @@
 <title><%= content_for?(:title) ? yield(:title) : "WagMe" %></title>
 <%= stylesheet_link_tag    'application' %>
 <%= javascript_include_tag 'application' %>
-
 <%= csrf_meta_tags %>
 
 </head>
@@ -16,7 +15,6 @@
       <ul class="menu">
         <a href="/meetups">All meetups</a>
         <li><%= link_to "Profile", current_user %></li>
-
 
       </ul>
     </div>
