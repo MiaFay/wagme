@@ -1,23 +1,23 @@
 <div class="form">
   <%= form_for(@meetup) do |f| %>
   <div class="field">
-    <div class="small-12 medium-6 columns">
+    <div class="small-12 columns">
       <%= f.label :name, 'Name' %>
-      <%= f.text_field :name %>
+      <%= f.text_area :name, rows: 2 %>
     </div>
   </div>
 
   <div class="field">
-    <div class="small-12 medium-6 columns">
+    <div class="small-12 columns">
       <%= f.label :location, 'Location' %>
       <%= f.text_field :location %>
     </div>
   </div>
 
   <div class="field">
-    <div class="small-12 medium-6 columns">
+    <div class="small-12 columns">
       <%= f.label :description, 'Description' %>
-      <%= f.text_area :description %>
+      <%= f.text_area :description, rows: 4 %>
     </div>
   </div>
 

@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
   has_many :meetups
   has_many :dogs
   has_many :user_meetups

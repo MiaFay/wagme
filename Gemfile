@@ -13,6 +13,7 @@ gem 'file_validators'
 gem 'fog'
 gem 'puma'
 gem 'foundation-rails', '~> 5.5.2.1'
+gem 'carrierwave'
 
 
 group :development, :test do

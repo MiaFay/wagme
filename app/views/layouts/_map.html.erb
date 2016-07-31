@@ -1,27 +1,33 @@
-<script>
-<% if current_user != nil %>
-var username = '<%= current_user.name %>';
-<% else %>
-var username = ''
-<% end %>
+<div id="map">
 
-var images_url = '<%= request.protocol + request.host_with_port %>/images/'
-</script>
 
-<% if ( controller_name == "meetups" &&
-  ( controller.action_name == "new" ||
-  controller.action_name == "show"  ||
-  controller.action_name == "edit" )) %>
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=" + ENV['GOOGLE_PLACES_API_KEY'] + "&libraries=places&callback=newEditMeetupMap" %>
-<% else %>
-  <% if @meetups %>
+<div class="map">
+  <script>
+  <% if current_user != nil %>
+  var username = '<%= current_user.name %>';
+  <% else %>
+  var username = ''
+  <% end %>
+
+  var images_url = '<%= request.protocol + request.host_with_port %>/images/'
+
+  </script>
+  <% if ( controller_name == "meetups" &&
+    ( controller.action_name == "new" ||
+    controller.action_name == "show"  ||
+    controller.action_name == "edit" )) %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=" + ENV['GOOGLE_PLACES_API_KEY'] + "&libraries=places&callback=newEditMeetupMap" %>
+    <% else %>
+    <% if @meetups %>
     <script>
     var meetup_array = []
     var idx = 0<% @meetups.each do |meetup| %>
     meetup_array[idx++] = {name: "<%= meetup.name %>", location: "<%= meetup.location %>",
     description: "<%= meetup.description %>", link: '<%= link_to "Edit", meetup_path(meetup) %>'};
+    <% end %>
     </script>
     <% end %>
-  <% end %>
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=" + ENV['GOOGLE_PLACES_API_KEY'] + "&callback=listMeetupsMap" %>
-<% end %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=" + ENV['GOOGLE_PLACES_API_KEY'] + "&callback=listMeetupsMap" %>
+    <% end %>
+  </div>
+</div>

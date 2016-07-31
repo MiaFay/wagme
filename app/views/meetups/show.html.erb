@@ -14,6 +14,7 @@
       <% if current_user.id == @meetup.user.id %>
       <%= link_to 'Edit', edit_meetup_path(@meetup), class: "button" %>
       <%= link_to 'Delete', @meetup, method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
+
       <% end %>
       <% end %>
   </div>

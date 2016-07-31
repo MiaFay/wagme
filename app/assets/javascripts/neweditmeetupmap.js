@@ -132,7 +132,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         '<div id="bodyContent">'+ place.vicinity +
         '</div>' ;
       } else {
-        contentString = "Click on Edit or Create Meetup to set a new meetup location."
+        contentString = "Click on 'Edit' or 'Create Meetup' to adjust this location!."
       }
 
 
