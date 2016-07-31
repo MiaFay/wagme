@@ -1,18 +1,19 @@
 <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 <nav>
   <div class="container">
+
     <header class="header">
       <h1 class="main-header">Wag Me!</h1>
       <ul class="header-subnav">
 
-        <li><%= link_to "Profile", current_user %></li>
         <li><a href="/meetups">Local Meetups</a></li>
-        <li><a href="/meetups/new">Create A Meetup</a></li>
         <% if user_signed_in? %>
+        <li><%= link_to "Profile", current_user %></li>
+        <li><a href="/meetups/new">Create A Meetup</a></li>
         <li><%= link_to "#{current_user.name}", edit_user_registration_path(@user) %></li>
         <li><%= link_to 'Sign Out', destroy_user_session_path, method: 'delete' %></li>
         <% else %>
-        <li> <%= link_to 'Sign Up', new_user_registration_path, method: 'get' %></li>
+        <li><%= link_to 'Sign Up', new_user_registration_path, method: 'get' %></li>
         <li><%= link_to 'Sign In', new_user_session_path, method: 'get' %></li>
         <% end %>
       </ul>

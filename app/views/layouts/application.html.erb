@@ -11,14 +11,12 @@
 
 <body>
   <%= render "layouts/navigation" %></div>
-  <div class="row">
-    <div class="small-3 columns" >
-      <%= yield %>
-    </div>
-    <div class="small-9 columns" id="map" height: 600px >
-      <p>The map should be here</p>
-      <%= render "layouts/map" %>
-    </div>
+  <div style="height: 20px"></div>
+  <div class="small-4 columns" >
+    <%= yield %>
+  </div>
+  <div class="small-8 columns" >
+    <%= render "layouts/map" %>
   </div>
 </body>
 </html>
