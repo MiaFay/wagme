@@ -1,13 +1,11 @@
 .header {
-  background: url('http://static.pexels.com/photos/6894/summer-photographer-pier-adventure-large.jpg') no-repeat center center;
-  background-size: cover;
-  padding: 4rem;
   text-align: center;
-
-  .main-header {
+  background: url('/images/header-image.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 4rem; }
+  .header .main-header {
     color: #666;
   }
-}
 
 .header-subnav {
   float: none;
