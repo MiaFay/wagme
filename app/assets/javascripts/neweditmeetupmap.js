@@ -11,7 +11,7 @@ var map
 var infoWindow
 var geocoder
 
-function newMeetupMap() {
+function newEditMeetupMap() {
   your_location_label = 'Your Location'  // label at your location (not a marker)
   default_center = {lat: 42.360, lng: -71.062} // center on Boston if no GPS
   initial_map_zoom_level = 15 // the higher the number the closer you are
@@ -123,19 +123,17 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
       //  infoWindow.setContent(place.name);
       // upon a click - the listener will prepopulate the field
 
-      document.getElementById("new_meetup").elements["meetup_name"].value = place.name
-      document.getElementById("new_meetup").elements["meetup_location"].value = place.geometry.location
-      document.getElementById("new_meetup").elements["meetup_description"].value = place.vicinity
-
-      var contentString = '<div id="content">'+
-      '<div id="siteNotice"></div>'+
-      '<h4 id="firstHeading" class="firstHeading">' + place.name + '</h4>'+
-      '<div id="bodyContent">'+ place.vicinity +
-      // Also Available:
-      // place.geometry.location.lat()
-      // place.geometry.location.lng()
-      // place.place_id
-      '</div>' ;
+      updateForm(place.name,place.geometry.location,place.vicinity)
+      var contentString
+      if (editable()) {
+        contentString = '<div id="content">'+
+        '<div id="siteNotice"></div>'+
+        '<h4 id="firstHeading" class="firstHeading">' + place.name + '</h4>'+
+        '<div id="bodyContent">'+ place.vicinity +
+        '</div>' ;
+      } else {
+        contentString = "Click on Edit or Create Meetup to set a new meetup location."
+      }
 
 
       infoWindow.setContent(contentString)
@@ -165,7 +163,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
       setTimeout(function () { infoWindow.close(); }, 3000);
     });
     google.maps.event.addListener(marker, 'dragend', function() {
-      var contentString = "Meetup"  // default value before callback
+      var contentString = "(Looking up location)"  // default value before callback
+
       geocoder.geocode({'location': marker.position}, function(results, status) {
         var wags_name
         var wags_description
@@ -187,13 +186,17 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
           wags_description = ''
         }
 
+        updateForm(wags_name,marker.position,wags_description)
 
-        document.getElementById("new_meetup").elements["meetup_name"].value = wags_name
-        document.getElementById("new_meetup").elements["meetup_location"].value = marker.position
-        document.getElementById("new_meetup").elements["meetup_description"].value = wags_description
+        if (editable()) {
 
-        contentString = '<div id="content">'+
-        '<h4 id="firstHeading" class="firstHeading">' + wags_name + '</h4>';
+          contentString = '<div id="content">'+
+          '<h4 id="firstHeading" class="firstHeading">' + wags_name + '</h4>';
+
+        } else {
+          contentString = "Click on Edit or Create Meetup to set a new meetup location."
+        }
+
 
         infoWindow.setContent(contentString)
       });
@@ -203,4 +206,31 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     });
 
 
+  }
+
+  // update form has to be sensitive to the state of the application
+  // this is determined by the class used in the div for the form
+  function updateForm(name,location,description) {
+    var doc
+    if (editable()) {
+
+      if (document.getElementsByClassName('new_meetup').length != 0 ) {
+        doc = document.getElementsByClassName("new_meetup")[0]
+      } else if (document.getElementsByClassName('edit_meetup').length != 0 ) {
+        doc = document.getElementsByClassName("edit_meetup")[0]
+      }
+
+      doc.elements["meetup_name"].value = name
+      doc.elements["meetup_location"].value = location
+      doc.elements["meetup_description"].value = description
+    }
+
+  }
+
+  function editable() {
+    if (document.getElementsByClassName("form").length == 0) { // not form, cant update
+      return false
+    } else {
+      return true
+    }
   }
