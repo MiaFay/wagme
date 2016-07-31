@@ -1,5 +1,3 @@
-<div class="">
-
   <div class="meetup-info">
     <br>
     <h1> <%= @meetup.name %></h1>
@@ -7,20 +5,15 @@
     <br>
     Description: <%= @meetup.description %>
     <br>
-    Attendees:
     <br>
     <br>
   </div>
 
-  <div class="header">
-    <div class="header-buttons">
+  <div class="UD-buttons">
       <% if user_signed_in? %>
       <% if current_user.id == @meetup.user.id %>
       <%= link_to 'Edit', edit_meetup_path(@meetup), class: "button" %>
       <%= link_to 'Delete', @meetup, method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
       <% end %>
       <% end %>
-    </div>
-    <%= image_tag @meetup_photo, class: "meetup_photo" %>
   </div>
-</div>

@@ -1,15 +1,13 @@
-
 // Note: This example requires that you consent to location sharing when
 // prompted by your browser. If you see the error "The Geolocation service
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
 
-
 var map
 var infoWindow
 
 function listMeetupsMap() {
-  your_location_label = 'Your Location'  // label at your location (not a marker)
+  your_location_label = 'You Are Here!'  // label at your location (not a marker)
   default_center = {lat: 42.360, lng: -71.062} // center on Boston if no GPS
   initial_map_zoom_level = 14// the higher the number the closer you are
 
@@ -81,7 +79,6 @@ function getLatLngFromString(location) {
   locate = new google.maps.LatLng(parseFloat(latlng[0]) , parseFloat(latlng[1]));
   return locate;
 }
-
 
 function listMarker(location,name,description,link) {
   var marker = new google.maps.Marker({

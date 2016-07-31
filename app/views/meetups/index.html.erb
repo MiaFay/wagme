@@ -1,6 +1,5 @@
 <div class="meetups-index">
-  <h1 class=indexTitle>Meetups Near You</h1>
-  <a href="/meetups/new" class="button">Create Meetup</a>
+  <h2 class=indexTitle>Meetups Near You</h2>
 
   <ul>
     <% @meetups.each do |meetup| %>
@@ -10,15 +9,3 @@
     <% end %>
   </ul>
 </div>
-
-<script>
-var meetup_array = []
-var idx = 0
-<% @meetups.each do |meetup| %>
-meetup_array[idx++] = {name: "<%= meetup.name %>", location: "<%= meetup.location %>",
-description: "<%= meetup.description %>", link: '<%= link_to "Edit", meetup_path(meetup) %>'};
-<% end %>
-
-</script>
-<div id="map"></div>
-<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=" + ENV['GOOGLE_PLACES_API_KEY'] + "&callback=listMeetupsMap" %>
