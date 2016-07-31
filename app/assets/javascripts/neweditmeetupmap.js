@@ -160,7 +160,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
       infoWindow.setContent(contentString)
       infoWindow.open(map, this);
-      setTimeout(function () { infoWindow.close(); }, 3000);
+      setTimeout(function () { infoWindow.close(); }, 6000);
     });
     google.maps.event.addListener(marker, 'dragend', function() {
       var contentString = "(Looking up location)"  // default value before callback
