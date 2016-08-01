@@ -13,9 +13,4 @@ describe Meetup, type: :model do
   it { should have_valid(:description).when("lets meet up at the park") }
   it { should_not have_valid(:description).when("", nil) }
 
-  it { should have_valid(:creator_id).when(1) }
-  it { should_not have_valid(:creator_id).when("", nil) }
-
-  ## should probably test validations in here
-
 end
