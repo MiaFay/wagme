@@ -464,7 +464,7 @@ button {
   padding-right: 0.625rem; }
   @media screen and (min-width: 40em) {
     .column, .columns {
-      padding-left: 0.9375rem;
+      padding-left: 2.4rem;
       padding-right: 0.9375rem; } }
   .column:last-child:not(:first-child), .columns:last-child:not(:first-child) {
     float: right; }

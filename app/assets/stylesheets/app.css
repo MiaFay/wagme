@@ -1,3 +1,9 @@
+h1 {
+  font-weight: bold;
+  color: #fff;
+  font-size: 42px;
+}
+
 .header {
   text-align: center;
   background: url('/images/header-image.jpg') no-repeat center center;

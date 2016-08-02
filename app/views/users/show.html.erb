@@ -1,8 +1,6 @@
-<h3><%= @user.first_name %>'s Dogs:</h3>
+<h2><%= @user.first_name %>'s Dogs:</h2>
 <% @user.dogs.each do |dog| %>
-<%= dog.dog_name %>
-<%=  %>
-
+<h3><%= dog.dog_name %></h3>
 
 <div class="dog-prof-boxes">
   <div class="disp-inline">
@@ -10,6 +8,9 @@
   </div>
 </div>
 <% end %>
-
-<h2>Add your dog!</h2>
+<% if @dog.nil? %>
+<h3>Add your dog!</h3>
+<% else %>
+<h4>Have more dogs? Add them!</h4>
+<% end %>
 <%= render 'form' %>

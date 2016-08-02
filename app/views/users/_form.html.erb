@@ -1,5 +1,7 @@
+Add some information about your dogs!
+
 <%= form_for ([@user, @dog]) do |f| %>
-  <%= f.text_field :dog_name, placeholder: "Dog Name" %>
+  <%= f.text_field :dog_name, placeholder: "Dog Name", autofocus: true %>
 
   <%= f.text_field :breed, placeholder: "Breed" %>
   <%= f.text_field :sex, placeholder: "Sex" %>
