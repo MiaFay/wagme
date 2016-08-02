@@ -4,7 +4,7 @@
   <ul>
     <% @meetups.each do |meetup| %>
     <li class="meetup-link" >
-      <%= link_to meetup.name, meetup_path(meetup) %>
+<h4><%= link_to meetup.name, meetup_path(meetup) %></h4><br>
     </li>
     <% end %>
   </ul>

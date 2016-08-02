@@ -57,7 +57,8 @@ function listMeetupsMap() {
             listMarker(getLatLngFromString(meetup_array[i].location),
             meetup_array[i].name,
             meetup_array[i].description,
-            meetup_array[i].link);
+            meetup_array[i].edit,
+            meetup_array[i].delete);
           }
         }
       }
@@ -80,18 +81,21 @@ function getLatLngFromString(location) {
   return locate;
 }
 
-function listMarker(location,name,description,link) {
-  var marker = new google.maps.Marker({
-    map: map,
-    position: location,
-    title: name
-  });
+function listMarker(location,name,description,edit_link,delete_link) {
+  var image = images_url + "Dog Park.png" ;
+  var marker = new google.maps.Marker({
+    map: map,
+    position: location,
+    title: name,
+    icon: image
+  });
 
   google.maps.event.addListener(marker, 'click', function() {
     var contentString = '<div id="content">'+
     '<div id="siteNotice"></div>'+
     '<h4 id="firstHeading" class="firstHeading">' + name + '</h4>'+
-    '<div id="bodyContent">'+ description + "  <b>" + link + "</b>" +
+    '<div id="bodyContent">'+ description + "  <b>" + edit_link + ", " +
+    delete_link + "</b>" +
     '</div>' ;
 
 
