@@ -16,6 +16,8 @@ FactoryGirl.define do
   factory :dog do
     name 'Marley'
     breed 'Golden Retriver'
+    sex 'Female'
+    temperment 'Shes the sweetest thing.'
     user_id 1
     description 'Bennett is the best dog a kid could ask for!'
   end

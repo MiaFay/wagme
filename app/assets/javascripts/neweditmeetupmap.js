@@ -171,7 +171,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
         if (status === 'OK') {
           if (results[0]) {
-            wags_name = username + " Wags Meetup at " +
+            wags_name = username + "'s - Wags Meetup at " +
             results[0].address_components[0].long_name + ' ' +
             results[0].address_components[1].long_name
 

@@ -40,7 +40,6 @@ class MeetupsController < ApplicationController
       flash[:success] = 'Metup successfully updated!'
       redirect_to meetup_path
     else
-      flash[:errors] = @meetup.errors.full_messages.join(', ')
       render :edit
     end
   end

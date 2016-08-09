@@ -1,16 +1,25 @@
-<h2><%= @user.first_name %>'s Dogs:</h2>
-<% @user.dogs.each do |dog| %>
-<h3><%= dog.dog_name %></h3>
+<div class="dog-list">
 
-<div class="dog-prof-boxes">
-  <div class="disp-inline">
-    <h2> <%= "#{@dog_name}" %> </h2>
-  </div>
-</div>
-<% end %>
-<% if @dog.nil? %>
-<h3>Add your dog!</h3>
-<% else %>
-<h4>Have more dogs? Add them!</h4>
-<% end %>
-<%= render 'form' %>
+  <h2><%= @user.first_name %>'s Dogs:</h2>
+  <% @user.dogs.each do |dog| %>
+  <ul><h3><%= dog.dog_name %></h3></ul>
+  <ul>
+    <h4>
+      <%= dog.temperment %>
+      <h4>Sex:
+          <%=  dog.sex %> </h4>
+          <h4>Age:<%= dog.age %></h4>
+        </ul>
+      </div>
+      <div class="dog-prof-boxes">
+        <div class="disp-inline">
+          <h2> <%= "#{@dog_name}" %> </h2>
+        </div>
+      </div>
+      <% end %>
+      <% if @dog.nil? %>
+      <h3>Add your dog!</h3>
+      <% else %>
+      <h5>Have more dogs? Add them!</h5>
+      <% end %>
+      <%= render 'form' %>
