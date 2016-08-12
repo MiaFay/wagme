@@ -8,5 +8,5 @@ class Dog < ActiveRecord::Base
   validates :vaccinated, inclusion: { in: [true, false] }
   validates :temperment, presence: true
   validates :age, inclusion: { in: 1..28 }
-  validates :photo_url, file_content_type: { allow: ['image/jpeg', 'image/png', 'image/jpg'] }
+  # validates :photo_url, file_content_type: { allow: ['image/jpeg', 'image/png', 'image/jpg'] } holding for carrierwave implementation
 end

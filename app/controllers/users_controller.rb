@@ -26,6 +26,3 @@ class UsersController < ApplicationController
     redirect_to members_path, notice: "User Deleted"
   end
 end
-end
-
-end
