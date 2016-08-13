@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+
+  def index
+    @users = User.all
+  end
+
   def show
     @user = User.find(params[:id])
     @meetup = @user.meetups
@@ -8,16 +13,11 @@ class UsersController < ApplicationController
     @user_photo = current_user.avatar
   end
 
-  def index
-    @users = User.all
+  def edit
+    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
-
-  end
-
-  def edit
     @user = User.find(params[:id])
   end
 
@@ -25,4 +25,5 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to members_path, notice: "User Deleted"
   end
+
 end

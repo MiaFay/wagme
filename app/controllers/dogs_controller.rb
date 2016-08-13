@@ -3,6 +3,7 @@ class DogsController < ApplicationController
     @dog = @dog.find(params[:id])
     @users_dog = current_users.dogs
     @users_name = current_user.first_name + current_user.last_name
+    @dog_photo = current_user.dogs.dog
   end
 
   def new

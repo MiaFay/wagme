@@ -4,16 +4,9 @@ class MeetupsController < ApplicationController
     @meetups = Meetup.all
   end
 
-  def create
-    @meetup = Meetup.new(meetup_params)
-    @meetup.user = current_user
-    if @meetup.save
-      flash[:notice] = 'Meetup successfully added!'
-      redirect_to meetup_path(@meetup)
-    else
-      flash[:error] = @meetup.errors.full_messages.join(', ')
-      render :new
-    end
+  def show
+    @meetup = Meetup.find(params[:id])
+    @user = @meetup.user_id
   end
 
   def new
@@ -24,14 +17,20 @@ class MeetupsController < ApplicationController
     end
   end
 
-  def show
-    @meetup = Meetup.find(params[:id])
-    @user = @meetup.user_id
-
-  end
-
   def edit
     @meetup = Meetup.find(params[:id])
+  end
+
+  def create
+    @meetup = Meetup.new(meetup_params)
+    @meetup.user = current_user
+    if @meetup.save
+      flash[:notice] = 'Meetup successfully added!'
+      redirect_to meetup_path(@meetup)
+    else
+      flash[:error] = @meetup.errors.full_messages.join(', ')
+      render :new
+    end
   end
 
   def update
@@ -49,6 +48,8 @@ class MeetupsController < ApplicationController
     @meetup.destroy
     redirect_to meetups_path
   end
+
+  private
 
   def meetup_params
     params.require(:meetup).permit(:name, :description, :location)
