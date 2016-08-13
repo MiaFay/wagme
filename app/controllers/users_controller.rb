@@ -25,5 +25,4 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to members_path, notice: "User Deleted"
   end
-
 end
