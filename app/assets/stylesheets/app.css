@@ -4,6 +4,10 @@ h1 {
   font-size: 42px;
 }
 
+.profile_photo {
+  border-radius: 50%;
+  margin: 0 auto 10px
+}
 .header {
   text-align: center;
   background: url('/images/header-image.jpg') no-repeat center center;
