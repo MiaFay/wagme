@@ -1,12 +1,12 @@
  README
-#WagMe!
+# WagMe!
 
 ![Build Status](https://codeship.com/projects/4e19db40-2f36-0134-7384-4a25dba64f1f/status?branch=master)
 ![Code Climate](https://codeclimate.com/github/MiaFay/breakable-toy.png)
 
 
 
- ## WagMe is a web application for dog owners to find local dog walks
+ #### WagMe! is a web application for dog owners to find local dog walks
 
 ![screen shot 2016-08-14 at 8 40 41 pm](https://cloud.githubusercontent.com/assets/18152057/17653659/dbe126e8-6266-11e6-80c9-a1a5475041dd.png)
 
