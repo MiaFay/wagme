@@ -1,14 +1,15 @@
+<%= image_tag @user_photo, class: "profile_photo" %>
 <div class="dog-list">
 
   <h2><%= @user.first_name %>'s Dogs:</h2>
   <% @user.dogs.each do |dog| %>
-  <ul><h3><%= dog.dog_name %></h3></ul>
+  <ul><%= dog.dog_name %></ul>
   <ul>
-    <h4>
+
       <%= dog.temperment %>
-      <h4>Sex:
-          <%=  dog.sex %> </h4>
-          <h4>Age:<%= dog.age %></h4>
+      Sex:
+          <%= dog.sex %>
+        Age:<%= dog.age %>
         </ul>
       </div>
       <div class="dog-prof-boxes">
@@ -18,7 +19,7 @@
       </div>
       <% end %>
       <% if @dog.nil? %>
-      <h3>Add your dog!</h3>
+      Add your dog!
       <% else %>
       <h5>Have more dogs? Add them!</h5>
       <% end %>

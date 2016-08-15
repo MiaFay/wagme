@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'file_validators'
-gem 'fog'
+gem 'fog-aws'
 gem 'puma'
 gem 'foundation-rails', '~> 5.5.2.1'
 gem 'carrierwave'

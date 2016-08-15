@@ -160,7 +160,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
       infoWindow.setContent(contentString)
       infoWindow.open(map, this);
-      setTimeout(function () { infoWindow.close(); }, 6000);
+      setTimeout(function () { infoWindow.close();
+       }, 6000);
     });
     google.maps.event.addListener(marker, 'dragend', function() {
       var contentString = "(Looking up location)"  // default value before callback
@@ -204,8 +205,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
       infoWindow.open(map, this);
       setTimeout(function () { infoWindow.close(); }, 3000);
     });
-
-
   }
 
   // update form has to be sensitive to the state of the application
@@ -224,7 +223,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
       doc.elements["meetup_location"].value = location
       doc.elements["meetup_description"].value = description
     }
-
   }
 
   function editable() {
